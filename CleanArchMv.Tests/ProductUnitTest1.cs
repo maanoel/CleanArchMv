@@ -96,5 +96,15 @@ namespace CleanArchMv.Domain.Tests
                 .Throw<DomainExceptionValidation>()
                 .WithMessage("Invalid price value");
         }
+
+        [Fact]
+        public void CreateProduct_WithNullImageName_NoNullReferenceException() 
+        {
+            Action action = () => new Product(1, "Iphone 100", "Iphone antigo", 100, null, 10);
+
+            action
+                .Should()
+                .NotThrow<NullReferenceException>();
+        }
     }
 }
