@@ -1,16 +1,15 @@
 ﻿using CleanArchMvc.Domain.Validation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CleanArchMvc.Domain.Entities
 {
     public sealed class Category : Entity
     {
         public string Name { get; private set; }
+
+        //expression-bodied member
+        public IReadOnlyCollection<Product> Products => _products.AsReadOnly();
+
+        private IList<Product> _products  = new List<Product>();
 
         public Category(string name)
         {
@@ -29,8 +28,6 @@ namespace CleanArchMvc.Domain.Entities
         { 
             ValidateDomain(name);
         }
-
-        public ICollection<Product> Products { get; set; }
 
         private void ValidateDomain(string name)
         {
