@@ -28,6 +28,17 @@ namespace CleanArchMvc.Infra.Data.EntitiesConfiguration
                 .HasOne(e => e.Category)
                 .WithMany(e=> e.Products)
                 .HasForeignKey(e => e.CategoryId);
+
+            var first = new Product(1, "Caderno", "100 folhas", 7, "cardeno1.jpg", 1);
+            first.CategoryId = 1;
+
+            var second = new Product(2, "Estojo", "cinza", 12, "estojo1.jpg", 2);
+            second.CategoryId = 2;
+
+            var third = new Product(3, "Teste", "cinza", 12, "estojo1.jpg", 2);
+            third.CategoryId = 2;
+
+            builder.HasData(first, second, third);
         }
     }
 }
