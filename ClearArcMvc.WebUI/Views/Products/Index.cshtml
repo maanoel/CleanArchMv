@@ -1,0 +1,57 @@
+﻿@using System.Globalization
+
+@model IEnumerable<CleanArchMvc.Application.DTOs.ProductDTO>
+@{
+    ViewData["Title"] = "Products Management";
+}
+
+<style>
+    .btn-yellow {
+        background-color: yellow;
+        color: black; 
+    }
+
+    .btn-blue {
+        background-color: blue;
+        color: white;
+    }
+
+    .btn-red {
+        background-color: red;
+        color: white;
+    }
+</style>
+
+<h2>Products Management</h2>
+
+<a class="btn btn-primary" href="/Products/Create">Register New</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => product.Name)</td>
+                <td>@Html.DisplayFor(modelItem => product.Description)</td>
+                <td>@Html.DisplayFor(modelItem => product.Price)</td>
+                <td>@Html.DisplayFor(modelItem => product.Stock)</td>
+                <td>@Html.DisplayFor(modelItem => product.Category.Name)</td>
+                <td>
+                    <a class="btn btn-yellow" href="/Products/Edit/@product.Id">Edit</a>
+                    <a class="btn btn-blue" href="/Products/Details/@product.Id">Details</a>
+                    <a class="btn btn-red" href="/Products/Delete/@product.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

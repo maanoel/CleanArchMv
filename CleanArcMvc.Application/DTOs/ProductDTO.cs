@@ -24,7 +24,7 @@ namespace CleanArchMvc.Application.DTOs
 
         [Required(ErrorMessage = "The price is required")]
         [Column(TypeName = "decimal(18,2)")]
-        [DisplayFormat(DataFormatString = "{0:C2")]
+        [DisplayFormat(DataFormatString = "{0:C2}")]
         [DataType(DataType.Currency)]
         [DisplayName("Price")]
         public decimal Price { get; set; }
@@ -37,7 +37,7 @@ namespace CleanArchMvc.Application.DTOs
 
         [MaxLength(250)]
         [DisplayName("Produt image")]
-        public decimal Image { get; set; }
+        public string Image { get; set; }
 
         [DisplayName("Category")]
         public Category Category { get; set; }
