@@ -29,7 +29,7 @@ namespace CleanArchMvc.Application.Services
             return _mapper.Map<CategoryDTO>(categoriesEntity);
         }
 
-        public async Task<IEnumerable<CategoryDTO>> GetCategory(string categoryName)
+        public async Task<IEnumerable<CategoryDTO>> GetCategories()
         {
             var categoriesEntity = await _categoryRepository.GetCategoriesAsync();
             return _mapper.Map<IEnumerable<CategoryDTO>>(categoriesEntity);

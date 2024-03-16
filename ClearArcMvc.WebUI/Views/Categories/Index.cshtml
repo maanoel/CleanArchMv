@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CleanArchMvc.Application.DTOs.CategoryDTO>
+@{
+    ViewData["Title"] = "Categories Management";
+}
+
+<h2>Categories Management</h2>
+
+<a class="btn btn-primary" href="/Categories/Create">Register New</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => category.Name)</td>
+                <td>
+                    <a class="btn btn-yellow" href="/Categories/Edit/@category.Id">Edit</a>
+                    <a class="btn btn-blue" href="/Categories/Details/@category.Id">Details</a>
+                    <a class="btn btn-red" href="/Categories/Delete/@category.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
