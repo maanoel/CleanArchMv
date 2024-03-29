@@ -6,7 +6,6 @@ namespace CleanArchMvc.Application.DTOs
     {
 
         public int Id { get; set; }
-        //DATA ANNOTATION..
         [Required(ErrorMessage ="The name is required")]
         [MinLength(3)]
         [MaxLength(100)]
