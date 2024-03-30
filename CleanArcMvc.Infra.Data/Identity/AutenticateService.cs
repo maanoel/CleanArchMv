@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CleanArchMvc.Infra.Data.Identity
 {
-    public class AutenticateService : IAutenticate
+    public class AutenticateService : IAuthenticate
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;

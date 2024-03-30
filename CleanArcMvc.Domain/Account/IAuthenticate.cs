@@ -1,6 +1,6 @@
 ﻿namespace CleanArchMvc.Domain.Account
 {
-    public interface IAutenticate
+    public interface IAuthenticate
     {
         Task<bool> Authenticate(string email, string password); 
 
