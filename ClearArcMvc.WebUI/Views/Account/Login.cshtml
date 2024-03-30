@@ -1,0 +1,32 @@
+﻿@model ClearArcMvc.WebUI.ViewModels.LoginViewModel
+
+<h2>Log In</h2>
+
+<div class="row">
+    <div class="col-md-10">
+        <form asp-controller="Account" asp-action="Login" method="post">
+            <input asp-for="ReturnUrl" hidden />
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input id="Email" type="email" asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input id="Password" type="password" asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Log in</button>
+            </div>
+
+            <div class="form-group">
+                <p>Don't have an account? <a asp-controller="Account" asp-action="Register">Register a new user</a></p>
+            </div>
+        </form>
+    </div>
+</div>
